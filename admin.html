@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+</head>
+<body>
+    <h1>Admin Login</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <div id="adminArea" style="display: none;">
+        <!-- Place your admin tasks and menu editing options here -->
+        <h2>Admin Tasks</h2>
+        <!-- Example: Edit menu and special promotions -->
+        <button id="editMenuButton">Edit Menu</button>
+        <button id="editPromotionsButton">Edit Special Promotions</button>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const adminArea = document.getElementById("adminArea");
+        const editMenuButton = document.getElementById("editMenuButton");
+        const editPromotionsButton = document.getElementById("editPromotionsButton");
+
+        // Replace with your actual admin username and password
+        const adminUsername = "admin";
+        const adminPassword = "password";
+
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === adminUsername && password === adminPassword) {
+                // Authentication successful
+                loginForm.style.display = "none";
+                adminArea.style.display = "block";
+            } else {
+                alert("Invalid username or password");
+            }
+        });
+
+        // Implement your admin tasks here, e.g., when the buttons are clicked
+        editMenuButton.addEventListener("click", function () {
+            // Implement menu editing logic
+            alert("Edit Menu functionality goes here.");
+        });
+
+        editPromotionsButton.addEventListener("click", function () {
+            // Implement special promotions editing logic
+            alert("Edit Special Promotions functionality goes here.");
+        });
+    </script>
+</body>
+</html>
